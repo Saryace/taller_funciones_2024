@@ -1,0 +1,128 @@
+---
+title: ¿Escribiste el mismo código tres veces?
+subtitle: ¡Mejor crea una función!
+format: kakashi-revealjs
+author:
+  - name: Dra. Sara E. Acevedo
+    email: seaceved@uc.cl
+    affiliations: Pontificia Universidad Católica de Chile | Facultad de Agronomía y Sistemas Naturales
+footer: saryace.github.io/taller_funciones_2024
+---
+
+## Antes de comenzar
+
+1.  Muchas gracias por participar
+2.  La clase quedará grabada y el material disponible [acá](https://github.com/Saryace/taller_funciones_2024)
+3.  Preguntas por el chat
+
+## Qué veremos hoy?
+
+* Iteración, loops y funciones
+* Paquete `purrr`
+* Modelo linear simple
+* ggplot2
+
+##
+
+![](img/for_loop.jpeg){fig-align="center"}
+
+
+[Arte por Allison Horst](https://twitter.com/allison_horst/)
+
+##
+
+![](img/purrr_cat.png){fig-align="center"}
+
+[Arte por Allison Horst](https://twitter.com/allison_horst/)
+
+# [{{< fa brands r-project size=1.4xl >}} DRY ]{style="color:white;float:right;text-align:right;"} {background-color="#56cc9d"}
+
+# [{{< fa brands r-project size=1.4xl >}} Do not Repeat Yourself ]{style="color:white;float:right;text-align:right;"} {background-color="#56cc9d"}
+
+## Algo básico
+
+### Funciones
+
+Una ´function´ forma una expresión en R, la cual tiene una salida (output)
+
+```{r, eval=FALSE}
+funcion(argumento_1 = named_argumento_1, 
+        argumenot_2 = named_argumento_2,
+              [etc.])
+```
+
+Ejemplos
+
+```{r, eval=FALSE}
+edades_mascotas <- c(3, 2, 3, 4)
+mean(x = edades_mascotas) # funcion promedio
+```
+
+## Funciones
+
+Las partes de una función son:
+
+1. Argumentos: información necesaria para realizar operación
+2. Cuerpo: conjunto de instrucciones 
+3. Salida: son los resultados de la función
+
+## Como automatizar usando purrr
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Vector: `map()` función cada elemento del vector
+
+- Lista:  `map()`  función a cada elemento de la lista
+
+- dataframe: `map()` función a cada columna del dataframe
+
+:::
+
+::: {.column width="50%"}
+
+función base de `purrr`: `map()`
+
+![](img/map.png)
+  
+:::
+
+::::
+
+## Veamos `map()` + vector
+```{r}
+uno_al_diez <- 1:10
+por_diez <- function(x) x*10
+purrr::map(uno_al_diez, por_diez)
+```
+
+## Veamos `map_dbl()` + vector
+```{r}
+purrr::map_dbl(uno_al_diez, por_diez)
+```
+
+## Veamos `map()` + lista
+
+```{r}
+
+uno_al_diez_lista <- list("numeros" = 1:10)
+uno_al_diez_lista 
+
+por_diez <- function(x) x*10
+purrr::map(uno_al_diez_lista, por_diez)
+```
+
+
+## función base de `purrr`: `map2()`
+
+`map2()`toma como input una función y la aplica a cada par de elementos (dos vectores o  dos listas)
+
+```{r}
+dataset_a <- c(3, 2 ,1)
+dataset_b <- c(1, 2, 3)
+sumar_filas <- function(x, y) {x+y}
+purrr::map2_dbl(dataset_a, dataset_b, sumar_filas)
+```
+
+# [{{< fa brands r-project size=1.4xl >}} Comencemos!]{style="color:white;float:right;text-align:right;"} {background-color="#56cc9d"}

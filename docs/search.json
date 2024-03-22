@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html#antes-de-comenzar",
+    "href": "index.html#antes-de-comenzar",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Antes de comenzar",
+    "text": "Antes de comenzar\n\nMuchas gracias por participar\nLa clase quedará grabada y el material disponible acá\nPreguntas por el chat"
+  },
+  {
+    "objectID": "index.html#qué-veremos-hoy",
+    "href": "index.html#qué-veremos-hoy",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Qué veremos hoy?",
+    "text": "Qué veremos hoy?\n\nIteración, loops y funciones\nPaquete purrr\nModelo linear simple\nggplot2"
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "",
+    "text": "Arte por Allison Horst"
+  },
+  {
+    "objectID": "index.html#section-1",
+    "href": "index.html#section-1",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "",
+    "text": "Arte por Allison Horst"
+  },
+  {
+    "objectID": "index.html#algo-básico",
+    "href": "index.html#algo-básico",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Algo básico",
+    "text": "Algo básico\nFunciones\nUna ´function´ forma una expresión en R, la cual tiene una salida (output)\n\nfuncion(argumento_1 = named_argumento_1, \n        argumenot_2 = named_argumento_2,\n              [etc.])\n\nEjemplos\n\nedades_mascotas &lt;- c(3, 2, 3, 4)\nmean(x = edades_mascotas) # funcion promedio"
+  },
+  {
+    "objectID": "index.html#funciones-1",
+    "href": "index.html#funciones-1",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Funciones",
+    "text": "Funciones\nLas partes de una función son:\n\nArgumentos: información necesaria para realizar operación\nCuerpo: conjunto de instrucciones\nSalida: son los resultados de la función"
+  },
+  {
+    "objectID": "index.html#como-automatizar-usando-purrr",
+    "href": "index.html#como-automatizar-usando-purrr",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Como automatizar usando purrr",
+    "text": "Como automatizar usando purrr\n\n\n\nVector: map() función cada elemento del vector\nLista: map() función a cada elemento de la lista\ndataframe: map() función a cada columna del dataframe\n\n\nfunción base de purrr: map()"
+  },
+  {
+    "objectID": "index.html#veamos-map-vector",
+    "href": "index.html#veamos-map-vector",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Veamos map() + vector",
+    "text": "Veamos map() + vector\n\nuno_al_diez &lt;- 1:10\npor_diez &lt;- function(x) x*10\npurrr::map(uno_al_diez, por_diez)\n\n[[1]]\n[1] 10\n\n[[2]]\n[1] 20\n\n[[3]]\n[1] 30\n\n[[4]]\n[1] 40\n\n[[5]]\n[1] 50\n\n[[6]]\n[1] 60\n\n[[7]]\n[1] 70\n\n[[8]]\n[1] 80\n\n[[9]]\n[1] 90\n\n[[10]]\n[1] 100"
+  },
+  {
+    "objectID": "index.html#veamos-map_dbl-vector",
+    "href": "index.html#veamos-map_dbl-vector",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Veamos map_dbl() + vector",
+    "text": "Veamos map_dbl() + vector\n\npurrr::map_dbl(uno_al_diez, por_diez)\n\n [1]  10  20  30  40  50  60  70  80  90 100"
+  },
+  {
+    "objectID": "index.html#veamos-map-lista",
+    "href": "index.html#veamos-map-lista",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "Veamos map() + lista",
+    "text": "Veamos map() + lista\n\nuno_al_diez_lista &lt;- list(\"numeros\" = 1:10)\nuno_al_diez_lista \n\n$numeros\n [1]  1  2  3  4  5  6  7  8  9 10\n\npor_diez &lt;- function(x) x*10\npurrr::map(uno_al_diez_lista, por_diez)\n\n$numeros\n [1]  10  20  30  40  50  60  70  80  90 100"
+  },
+  {
+    "objectID": "index.html#función-base-de-purrr-map2",
+    "href": "index.html#función-base-de-purrr-map2",
+    "title": "¿Escribiste el mismo código tres veces?",
+    "section": "función base de purrr: map2()",
+    "text": "función base de purrr: map2()\nmap2()toma como input una función y la aplica a cada par de elementos (dos vectores o dos listas)\n\ndataset_a &lt;- c(3, 2 ,1)\ndataset_b &lt;- c(1, 2, 3)\nsumar_filas &lt;- function(x, y) {x+y}\npurrr::map2_dbl(dataset_a, dataset_b, sumar_filas)\n\n[1] 4 4 4"
+  }
+]
